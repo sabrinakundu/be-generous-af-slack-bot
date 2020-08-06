@@ -79,18 +79,7 @@ app.post('/highlights', (req, res) => {
             description: "Volunteer at orphanage"
         }
     ]
-    let formattedLeaderboard = "*Leaderboard*: " 
-    leaderboard.forEach(l => {
-        formattedLeaderboard += `\n\n ${l.name}: ${l.hours} hours `
-    })
     const blocks = [
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": " "
-                }
-            },
             {
                 "type": "section",
                 "text": {
@@ -106,32 +95,86 @@ app.post('/highlights', (req, res) => {
                 }
             },
             {
-                "type": "divider"
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": ":trophy: |    *Leaderboard*    | :trophy:"
+                }
             },
             {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": formattedLeaderboard
+                    "text": "*             Contact @enika* `11/20-11/22` _ volunteer at Schrute Farms_"
+                },
+                "accessory": {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "RSVP",
+                        "emoji": true
+                    }
                 }
-            },
-            {
-                "type": "divider"
             },
             {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": ":calendar: |   *Volunteer Opportunities*  | :calendar: "
+                    "text": "*             Contact @brian* `12/01` volunteer at _Benihana_"
+                },
+                "accessory": {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "RSVP",
+                        "emoji": true
+                    }
                 }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*             Contact @victoria* `11/13` volunteer at _Scranton Office_"
+                },
+                "accessory": {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "RSVP",
+                        "emoji": true
+                    }
+                }
+            },
+            {
+                "type": "divider"
             }
         ]
+    leaderboard.forEach(l => {
+        blocks.push({
+            "type": "section",
+                "text": {
+                "type": "mrkdwn",
+                "text": `*                          ${l.name}*                                           ${l.hours} hours`
+            }
+        })
+    })
+    blocks.push({
+        "type": "divider"
+    })
+    blocks.push({
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": ":calendar: |   *Volunteer Opportunities*  | :calendar: "
+        }
+    })
     opportunities.forEach(o => {
         blocks.push({
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*Contact ${o.contact}* ${o.date} ${o.description}`
+                "text": `             Contact ${o.contact} ${o.date} _ ${o.description}_`
             },
             "accessory": {
                 "type": "button",
