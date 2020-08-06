@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 
 app.post('/slack', (req, res) => {
     console.log(req.body)
-    res.status(200).send("hello")
+    res.status(200).send("<table>hello</table>")
 })
 
 app.listen(port, () => {
