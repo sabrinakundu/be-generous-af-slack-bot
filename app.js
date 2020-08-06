@@ -6,38 +6,37 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/slack', (req, res) => {
+app.post('/welcome', (req, res) => {
     console.log(req.body)
     res.status(200).json({
-        "text": "This is your first interactive message",
-        "attachments": [
+        "blocks": [
             {
-                "text": "Building buttons is easy right?",
-                "fallback": "Shame... buttons aren't supported in this land",
-                "callback_id": "button_tutorial",
-                "color": "#3AA3E3",
-                "attachment_type": "default",
-                "actions": [
-                    {
-                        "name": "yes",
-                        "text": "yes",
-                        "type": "button",
-                        "value": "yes"
-                    },
-                    {
-                        "name": "no",
-                        "text": "no",
-                        "type": "button",
-                        "value": "no"
-                    },
-                    {
-                        "name": "maybe",
-                        "text": "maybe",
-                        "type": "button",
-                        "value": "maybe",
-                        "style": "danger"
-                    }
-                ]
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "Hey there 👋 Welcome to Generous++ Foundation stats!"
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*1️⃣ Use the `/foundationStats` command*. Type `/foundationStats` followed by a channel name and a time scope (`month`, `year`, `allTime`). Example: `/foundationStats #interns year`"
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*2️⃣ Use the `/opportunities` command* if you want to see all available volunteer opportunities"
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*3️⃣ Use the `/addOpportunity` command* to list a potential volunteering opportunity followed by `[point of contact] [opportunity date] [opportunity description]` like so `/addOpportunity @nick 08/06/2020 Plant trees around the office`"
+                }
             }
         ]
     })
