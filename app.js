@@ -56,7 +56,7 @@ app.post('/highlights', (req, res) => {
             hours: 10
         },
         {
-            name: "nick",
+            name: "Nick Vargas",
             hours: 5
         }
     ]
@@ -129,7 +129,7 @@ app.post('/highlights', (req, res) => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "*Contact ${o.contact}* ${o.date} ${o.description}"
+                "text": `*Contact ${o.contact}* ${o.date} ${o.description}`
             },
             "accessory": {
                 "type": "button",
