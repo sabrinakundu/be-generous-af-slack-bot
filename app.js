@@ -102,51 +102,6 @@ app.post('/highlights', (req, res) => {
                 }
             },
             {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "*             Contact @enika* `11/20-11/22` _ volunteer at Schrute Farms_"
-                },
-                "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "RSVP",
-                        "emoji": true
-                    }
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "*             Contact @brian* `12/01` volunteer at _Benihana_"
-                },
-                "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "RSVP",
-                        "emoji": true
-                    }
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "*             Contact @victoria* `11/13` volunteer at _Scranton Office_"
-                },
-                "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "RSVP",
-                        "emoji": true
-                    }
-                }
-            },
-            {
                 "type": "divider"
             }
         ]
@@ -174,7 +129,7 @@ app.post('/highlights', (req, res) => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `             Contact ${o.contact} ${o.date} _ ${o.description}_`
+                "text": `*             Contact* ${o.contact} ` +  "`" + o.date + "`" + `_ ${o.description}_`
             },
             "accessory": {
                 "type": "button",
