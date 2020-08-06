@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
 app.post('/welcome', (req, res) => {
     const { user_name } = req.body
+    console.log(user_name)
     res.status(200).json({
         "blocks": [
             {
@@ -46,6 +47,7 @@ app.post('/welcome', (req, res) => {
 })
 
 app.post('/highlights', (req, res) => {
+    console.log(req.body.user_name)
     const leaderboard = [
         {
             name: "Sabrina Kundu",
