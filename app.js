@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.post('/welcome', (req, res) => {
     console.log(req.body)
     console.log(req.params)
-    console.log(req.quer)
+    console.log(req.query)
     res.status(200).json({
         "blocks": [
             {
