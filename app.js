@@ -17,7 +17,7 @@ app.post('/welcome', (req, res) => {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": `Hey ${user_name} 👋 Welcome to Generous++ Foundation stats!`
+                    "text": `Hey @${user_name} 👋 Welcome to Generous++ Foundation stats!`
                 }
             },
             {
