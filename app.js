@@ -8,6 +8,8 @@ app.get('/', (req, res) => {
 
 app.post('/welcome', (req, res) => {
     console.log(req.body)
+    console.log(req.params)
+    console.log(req.quer)
     res.status(200).json({
         "blocks": [
             {
@@ -35,7 +37,7 @@ app.post('/welcome', (req, res) => {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "*3️⃣ Use the `/addOpportunity` command* to list a potential volunteering opportunity followed by `[point of contact] [opportunity date] [opportunity description]` like so `/addOpportunity @nick 08/06/2020 Plant trees around the office`"
+                    "text": "*3️⃣ Use the `/addOpportunity` command* to list a potential volunteering opportunity followed by [point of contact] [opportunity date] [opportunity description] like so `/addOpportunity @nick 08/06/2020 Plant trees around the office`"
                 }
             }
         ]
