@@ -45,6 +45,107 @@ app.post('/welcome', (req, res) => {
     })
 })
 
+app.post('/highlights', (req, res) => {
+    const leaderboard = [
+        {
+            name: "Sabrina Kundu",
+            hours: 20
+        },
+        {
+            name: "Enika Biswas",
+            hours: 10
+        },
+        {
+            name: "nick",
+            hours: 5
+        }
+    ]
+    const opportunities = [
+        {
+            contact: "Gautam Jethwani",
+            date: "10/01",
+            description: "Plant trees in the office"
+        },
+        {
+            contact: "Victoria Huynh",
+            date: "05/21",
+            description: "Be Generous AF"
+        },
+        {
+            contact: "Geoffrey Tian",
+            date: "03/26",
+            description: "Volunteer at orphanage"
+        }
+    ]
+    let formattedLeaderboard = "*Leaderboard*: " 
+    leaderboard.forEach(l => {
+        formattedLeaderboard += `\n\n *@${l.name}: ${l.hours} hours `
+    })
+    const blocks = [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": " "
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*Foundations Leave Stats!* :chart_with_upwards_trend:"
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": " :sparkles: *Highlights* :sparkles:"
+                }
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": formattedLeaderboard
+                }
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": ":calendar: |   *Volunteer Opportunities*  | :calendar: "
+                }
+            }
+        ]
+    opportunities.forEach(o => {
+        blocks.push({
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": `*Contact @${o.contact}* ${o.date} ${o.description}`
+            },
+            "accessory": {
+                "type": "button",
+                "text": {
+                    "type": "plain_text",
+                    "text": "RSVP",
+                    "emoji": true
+                }
+            }
+        })
+    })
+    res.status(200).json({
+        "blocks": blocks
+    })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
