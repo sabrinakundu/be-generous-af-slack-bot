@@ -10,16 +10,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/welcome', (req, res) => {
-    console.log(req.body)
-    console.log(req.params)
-    console.log(req.query)
+    const { user_name } = req.body
     res.status(200).json({
         "blocks": [
             {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "Hey there 👋 Welcome to Generous++ Foundation stats!"
+                    "text": `Hey ${user_name} 👋 Welcome to Generous++ Foundation stats!`
                 }
             },
             {
