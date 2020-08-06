@@ -79,7 +79,7 @@ app.post('/highlights', (req, res) => {
     ]
     let formattedLeaderboard = "*Leaderboard*: " 
     leaderboard.forEach(l => {
-        formattedLeaderboard += `\n\n @${l.name}: ${l.hours} hours `
+        formattedLeaderboard += `\n\n ${l.name}: ${l.hours} hours `
     })
     const blocks = [
             {
@@ -129,7 +129,7 @@ app.post('/highlights', (req, res) => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*Contact *@${o.contact} ${o.date} ${o.description}`
+                "text": "*Contact ${o.contact}* ${o.date} ${o.description}"
             },
             "accessory": {
                 "type": "button",
