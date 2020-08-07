@@ -98,6 +98,13 @@ app.post('/highlights', (req, res) => {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
+                    "text": "Shout out to *Kevin Li* for volunteering *10 hours* this month!"
+                }
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
                     "text": ":trophy: |    *Leaderboard*    | :trophy:"
                 }
             },
@@ -129,7 +136,7 @@ app.post('/highlights', (req, res) => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*             Contact* ${o.contact} ` +  "`" + o.date + "`" + `_ ${o.description}_`
+                "text": `*             Contact* ${o.contact} ` +  "`" + o.date + "` " + ` _${o.description}_ `
             },
             "accessory": {
                 "type": "button",
