@@ -168,7 +168,11 @@ app.post('/add-opportunity', (req, res) => {
     } else {
         const contact = req.body.user_name
         const date = split[0]
-        const description = split[1]
+        let description = ""
+        for (let i = 1; i < split.length; i++) {
+            description += split[i]
+            description += " "
+        }
         opportunities.push({
             contact,
             date,
