@@ -94,7 +94,7 @@ const constructJSON = () => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*             Contact* ${o.contact} ` +  "`" + o.date + "` " + ` _${o.description}_ `
+                "text": `*             Contact* @${o.contact} ` +  "`" + o.date + "` " + ` _${o.description}_ `
             },
             "accessory": {
                 "type": "button",
