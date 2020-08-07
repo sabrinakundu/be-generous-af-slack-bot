@@ -23,15 +23,15 @@ const opportunities = [
 
 const leaderboard = [
     {
-        name: "Sabrina Kundu",
+        name: "skundu",
         hours: 20
     },
     {
-        name: "Enika Biswas",
+        name: "ebiswas",
         hours: 10
     },
     {
-        name: "Nick Vargas",
+        name: "nvargas",
         hours: 5
     }
 ]
@@ -131,21 +131,14 @@ app.post('/welcome', (req, res) => {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "*1️⃣ Use the `/foundationStats` command*. Type `/foundationStats` followed by a channel name and a time scope (`month`, `year`, `allTime`). Example: `/foundationStats #interns year`"
+                    "text": "*1️⃣ Use the `/generous-af-highlights` command*. Type `/generous-af-highlights` to see the leaderboard and available opportunities"
                 }
             },
             {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "*2️⃣ Use the `/opportunities` command* if you want to see all available volunteer opportunities"
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "*3️⃣ Use the `/addOpportunity` command* to list a potential volunteering opportunity followed by [point of contact] [opportunity date] [opportunity description] like so `/addOpportunity @nick 08/06/2020 Plant trees around the office`"
+                    "text": "*2️⃣ Use the `/generous-af-add-opportunity` command* to list a potential volunteering opportunity followed by [opportunity date] [opportunity description] like so `/generous-af-add-opportunity 08/06/2020 Plant trees around the office`"
                 }
             }
         ]
@@ -157,6 +150,17 @@ app.post('/highlights', (req, res) => {
     res.status(200).json({
         "blocks": constructJSON()
     })
+})
+
+app.post('/remove', (req, res) => {
+    console.log(req.body.user_name)
+    const { text } = req.body
+    if (parseInt(text) === "NaN") {
+        res.status(200).send("Error")
+    } else {
+        opportunities.splice(parseInt(text), 1)
+        res.status(200).send("Successfully removed")
+    }
 })
 
 app.post('/add-opportunity', (req, res) => {
@@ -184,7 +188,7 @@ app.post('/add-opportunity', (req, res) => {
                     "type": "section",
                     "text": {
                         "type": "mrkdwn",
-                        "text": "Successfully added " +  "`" + description + "` " +  "organized by " +  "`" + contact + "` ! \n\n Thank you for sharing, " + contact + "! Goodbye :wave:"
+                        "text": "Successfully added " +  "`" + description + "` " +  "organized by " +  "@" + contact + " ! \n\n Thank you for sharing, " + contact + "! Goodbye :wave:"
                     }
                 }
             ]
